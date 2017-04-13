@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="bankApp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular-route.min.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="CSS/main.css">
+
+  <script src="JS/controllers/accountController.js" charset="utf-8"></script>
+  <script src="JS/controllers/addAccountsController.js" charset="utf-8"></script>
+  <script src="JS/controllers/editAccountsController.js" charset="utf-8"></script>
+  <script src="JS/controllers/deleteAccountsController.js" charset="utf-8"></script>
+  <script src="JS/controllers/activeController.js" charset="utf-8"></script>
+  <script src="JS/controllers/clockController.js" charset="utf-8"></script>
+  <!-- <script src="JS/services/db.js" charset="utf-8"></script> -->
+  <script src="JS/services/localStorage.js" charset="utf-8"></script>
+    <script src="JS/app.js" charset="utf-8"></script>
+  <title>Document</title>
+</head>
+<body>
+
+
+<nav class="navbar navbar-default" >
+  <div class="container-fluid">
+    <a href="" class="navbar-brand">Bank App</a>
+    <ul ng-init="active=1" class="nav navbar-nav navbar-left" ng-controller="activeCtrl">
+      <li ng-click=changeActive(1) ng-class="{'active' : active === 1}"><a href="#/" >Accounts</a></li>
+      <li ng-click=changeActive(2) ng-class="{'active' : active === 2}" ><a href="#/addAccounts.html">Add Account</a></li>
+      <li ng-click=changeActive(3) ng-class="{'active' : active === 3}" ><a href="#/editAccounts.html">Edit Account</a></li>
+      <li ng-click=changeActive(4) ng-class="{'active' : active === 4}"><a href="#/deleteAccounts.html">Delete Account</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+    <li ng-controller="clockCtrl"><a href="">{{theTime}}</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-9 col-lg-offset-2">
+     <ng-view></ng-view>
+
+    </div>
+  </div>
+</div>
+</body>
+</html>

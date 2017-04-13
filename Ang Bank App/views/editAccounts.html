@@ -1,0 +1,42 @@
+<h2>editAccounts</h2><hr><br>
+
+
+<div class="col-lg-9 col-lg-offset-2" ng-show="prikaziTabeluEdit" >
+  <table class="table" >
+    <thead>
+      <tr>
+        <th>UserNo</th>
+        <th>Account No</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Card type</th>
+        <th>Cash</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody >
+      <tr>
+        <tr ng-repeat="prop in users">
+          <td>{{$index+1}}</td>
+          <td>{{prop.accountNo}}</td>
+          <td>{{prop.firstName}}</td>
+          <td>{{prop.lastName}}</td>
+          <td>{{prop.cardType}}</td>
+          <td>{{prop.cashAmount}}</td>
+        <td><button type="button"  class="btn btn-warning" ng-click="editujUsera(prop)">Edit Account</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+</div>
+<div class="col-lg-6 col-lg-offset-2" ng-show="prikaziFormuZaEdit">
+
+  <input ng-model="pravimNovogUseraOdSelektovanog.accountNo" type="text"  value="" class= "form-control"placeholder="accountNo"> <br>
+  <input ng-model="pravimNovogUseraOdSelektovanog.firstName" type="text" class= "form-control"placeholder="First name"> <br>
+  <input ng-model="pravimNovogUseraOdSelektovanog.lastName" type="text"  class= "form-control"placeholder="Last Name"> <br>
+  <input ng-model="pravimNovogUseraOdSelektovanog.cardType" type="text"  class= "form-control" placeholder="Card type"> <br>
+  <input ng-model="pravimNovogUseraOdSelektovanog.cashAmount" type="text"  class= "form-control"placeholder="Cash"> <br>
+
+  <button class= "btn btn-primary form-control" ng-click="vratiNaPocetnu()" type="button" >vrati se na pocetnu stranu</button>
+</div>
